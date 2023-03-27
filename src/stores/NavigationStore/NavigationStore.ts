@@ -1,3 +1,14 @@
-import styled from "styled-components";
+import { action, observable } from 'mobx';
 
-export const hey = styled.div``;
+class NavigationStore {
+    @observable
+    public currentRoute: string = '';
+
+    @action
+    public setCurrentRoute = (route: string) => {
+        this.currentRoute = route;
+    };
+}
+const navigationStore = new NavigationStore();
+export default navigationStore;
+export { NavigationStore };
