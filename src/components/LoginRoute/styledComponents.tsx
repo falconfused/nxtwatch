@@ -1,0 +1,108 @@
+import styled from 'styled-components';
+export const SubmitButton = styled.button`
+    width: 20%;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #352fe2;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+`;
+
+export const LoginContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    width: 100%;
+
+`;
+
+export const LoginForm = styled.div`
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+`;
+
+export const NxtWatchLogo = styled.img`
+
+    width: 150px;
+    height:50px;
+    margin-bottom: 20px;
+`;
+
+export const Input = styled.input`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1px #dfe1e6;
+    background-color: #ffffff;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    &:focus {
+        border: solid 1px #f7931e;
+    }
+`;
+export const InputContainer = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+   width: 80%;
+    outline: none;
+    `;
+
+
+export const InputLabel = styled.label`
+display: flex;
+text-align: start;
+flex-direction: row;
+justify-content: start;
+margin-bottom: 10px;
+    `;
+export const ShowPasswordCheckBox = styled.input`
+    display: flex;
+    flex-direction: row;
+    justify-content: start;     
+margin-right: 8px;
+`;
+
+export const ShowPasswordContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: 20px;
+    /* align-items: center; */
+    width: 80%;
+`;
+
+export const ShowPasswordLabel = styled.label`
+width: 90%;
+`;
+export const ErrorMesage = styled.p`
+
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+`;
