@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { observable, action, computed } from "mobx";
 import { Status } from "../../constants/constants";
-import VideosModel from "./models/homeVideosModel/homeVideosModel";
+import VideosModel from "./models/homeVideosModel/VideosModel";
 class VideoStore {
     @observable
     homeVideosList = [] as Array<VideosModel>;
