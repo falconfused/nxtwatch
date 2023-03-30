@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
 import { AuthStore } from '../../stores/AuthStore/AuthStore';
-import {Status} from '../../constants/constants';
+import { Status, Theme } from '../../constants/constants';
 import Cookies from 'js-cookie';
 
 import { useNavigate } from 'react-router-dom';
 import { ErrorMesage, LoginContainer, LoginForm, NxtWatchLogo, ShowPasswordCheckBox, ShowPasswordContainer, ShowPasswordLabel, SubmitButton } from './styledComponents';
 import InputField from '../InputField/InputField';
 import { ThemeStore } from '../../stores/ThemeStore/ThemeStore';
+import { NXT_WATCH_LOGO_DARK, NXT_WATCH_LOGO_LIGHT } from '../../constants/ImageUrl';
 
 interface LoginRouteProps {
 
@@ -45,7 +46,7 @@ const LoginRoute =
             if (token !== undefined) {
                 navigate('/home');
             }
-        })
+        }, [token])
         const handleUsernameChange = (value: string) => {
             setUsername(value);
         }
@@ -56,8 +57,6 @@ const LoginRoute =
             setShowPassword(!showPassword);
         }
         const handleSubmit = async () => {
-
-            // console.log(authStore.loginStatus)
             await authStore.login(username, password);
             const { loginStatus, errorMessage } = authStore;
             console.log(loginStatus)
@@ -77,7 +76,7 @@ const LoginRoute =
         return (
             <LoginContainer>
                 <LoginForm>
-                    <NxtWatchLogo src='https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png' />
+                    <NxtWatchLogo src={themeStore.theme === Theme.LIGHT ? NXT_WATCH_LOGO_LIGHT : NXT_WATCH_LOGO_DARK} />
                     <InputField
                         placeholder='USERNAME'
                         type='text'

@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { observable, action, computed } from "mobx";
 import { Status } from "../../constants/constants";
+import { toJS } from 'mobx';
 import VideosModel from "./models/homeVideosModel/VideosModel";
 class VideoStore {
     @observable
@@ -10,7 +11,7 @@ class VideoStore {
     @observable
     gamingVideosList = [] as Array<VideosModel>;
     @observable
-    savedVideosList: Array<String> = [];
+    savedVideosList = [] as Array<VideosModel>;
     @observable
     likedVideosSet = new Set();
     @observable
@@ -69,11 +70,11 @@ class VideoStore {
     @action
     setSavedVideos = () => {
         console.log(this.savedVideosList)
-        if (this.savedVideosList.includes(this.selectedVideoDetails.id)) {
-            this.savedVideosList = this.savedVideosList.filter((eachVideoId) => eachVideoId !== this.selectedVideoDetails.id)
+        if (this.savedVideosList.some(obj => obj.id === this.selectedVideoDetails.id)) {
+            this.savedVideosList = this.savedVideosList.filter((obj) => obj.id !== this.selectedVideoDetails.id)
             return;
         }
-        this.savedVideosList.push(this.selectedVideoDetails.id);
+        this.savedVideosList.push(this.selectedVideoDetails);
     }
 
 
@@ -91,21 +92,24 @@ class VideoStore {
         };
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data)
         if (response.ok) {
             this.homeVideosStatus = Status.SUCCESS;
             if (this.searchInput.length > 0) {
                 let addedVideoList = data.videos.filter((eachVideo: any) => eachVideo.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+                this.homeVideosList = [];
                 for (let i = 0; i < addedVideoList.length; i++) {
                     this.homeVideosList = [...this.homeVideosList, new VideosModel(addedVideoList[i])];
                 }
+                const hey = toJS(this.homeVideosList)
+                console.log(hey)
             }
             else {
-
+                this.homeVideosList = [];
                 for (let i = 0; i < data.total; i++) {
                     this.homeVideosList = [...this.homeVideosList, new VideosModel(data.videos[i])];
                 }
-                console.log(this.homeVideosList)
+                const hey = toJS(this.homeVideosList)
+                console.log(hey)
 
             }
         }
@@ -132,6 +136,7 @@ class VideoStore {
         if (response.ok) {
 
             this.trendingVideosStatus = Status.SUCCESS;
+            this.trendingVideosList = [];
             for (let i = 0; i < data.videos.length; i++) {
                 this.trendingVideosList = [...this.trendingVideosList, new VideosModel(data.videos[i])];
             }
@@ -158,9 +163,11 @@ class VideoStore {
 
         if (response.ok) {
             this.gamingVideosStatus = Status.SUCCESS;
+            this.gamingVideosList = [];
             for (let i = 0; i < data.videos.length; i++) {
                 this.gamingVideosList = [...this.gamingVideosList, new VideosModel(data.videos[i])];
             }
+            console.log(toJS(this.gamingVideosList))
         }
         else {
             this.gamingVideosStatus = Status.ERROR;
@@ -185,7 +192,7 @@ class VideoStore {
         if (response.ok) {
             this.selectedVideoId = data.video_details.id;
             this.selectedVideoStatus = Status.SUCCESS;
-            this.selectedVideoDetails = data.video_details;
+            this.selectedVideoDetails = new VideosModel(data.video_details);
 
         }
         else {
@@ -197,16 +204,16 @@ class VideoStore {
     @computed
     get savedVideosLists() {
         console.log(this.savedVideosList)
-        // return "hey";
-        const filteredData = this.homeVideosList.filter(item => this.savedVideosList.includes(item.id));
+        const filteredData = this.homeVideosList.filter(item => this.savedVideosList.includes(item));
         console.log(filteredData)
         return filteredData;
     }
 
 
-    @computed
-    get calculateTime() {
-        const dateString = this.selectedVideoDetails.publishedAt;
+    @action
+    calculateTime(publishedAt: string) {
+        console.log(publishedAt)
+        const dateString = publishedAt;
         const date = new Date(dateString);
         const currentDate = new Date();
         const timeDiff = currentDate.getTime() - date.getTime();

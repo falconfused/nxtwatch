@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Theme } from '../../constants/constants';
 export const HeaderOptions = styled.div`
 
 @media (max-width: 476px) {
@@ -41,7 +42,7 @@ height: 100px;
     align-items: center;
     justify-content: space-between;
     padding-left: 20px;
-    background-color: ${props=>props.theme==="light" ? "white" : "#201F1C"};
+    background-color: ${props=>props.theme===Theme.LIGHT ? "white" : "#201F1C"};
  
 
     top: 0;
@@ -50,3 +51,7 @@ height: 100px;
         padding: 0 10px;
     }
 `;
+
+
+
+// Modal LogOut

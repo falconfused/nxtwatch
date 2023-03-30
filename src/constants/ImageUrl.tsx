@@ -8,3 +8,14 @@ export const HEADER_DARK_THEME =
     "https://res.cloudinary.com/dqgpcuxoj/image/upload/v1676290605/pattern_2_1_cvjuxo.svg";
 export const HEADER_PROFILE_IMAGE =
     "https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png";;
+export const FACEBOOK_ICON =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png";
+export const TWITTER_ICON =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png";
+export const LINKEDIN_ICON =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png";
+export const HOME_BANNER_IMAGE =
+"https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png";
+    
+
+

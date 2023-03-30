@@ -21,8 +21,9 @@ export const LoginContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: ${props => props.theme.backgroundColor};
     width: 100%;
+    color: ${props => props.theme.primaryTextColor};
 
 `;
 
@@ -33,7 +34,7 @@ export const LoginForm = styled.div`
     justify-content: center;
     width: 400px;
     height: 400px;
-    background-color: #ffffff;
+    background-color: ${props => props.theme.primaryColor};
     border-radius: 4px;
 
 `;
@@ -43,6 +44,10 @@ export const NxtWatchLogo = styled.img`
     width: 150px;
     height:50px;
     margin-bottom: 20px;
+    @media (max-width: 576px) {
+        width: 80px;
+        height: 25px;
+    }
 `;
 
 export const Input = styled.input`

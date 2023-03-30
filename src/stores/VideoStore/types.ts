@@ -11,10 +11,10 @@ export interface ChannelType {
 export interface VideoInterface {
     id: string;
     title: string;
-    video_url: string;
-    channel: ChannelType;
+    video_url?: string;
+    channel?: ChannelType;
     thumbnail_url: string;
     view_count: string;
-    published_at: string;
+    published_at?: string;
 
 }
