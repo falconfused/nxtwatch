@@ -5,11 +5,12 @@ import { inject, observer } from "mobx-react";
 import { VideoStore } from "../../stores/VideoStore/VideoStore";
 import SideBar from "../SideBar";
 import { NavigationStore } from "../../stores/NavigationStore/index";
-import { TRENDING } from "../../constants/constants";
+import { API_FAILURE, Status, TRENDING } from "../../constants/constants";
 import { TrendingContainer, TrendingVideoBody, TrendingVideoWithBanner } from "./styledComponents";
 import TrendingVideosList from "../TrendingVideosList/TrendingVideosList";
-import { VideoListBannerContainer } from "../VideoListBanner/styledComponents";
 import VideoListBanner from "../VideoListBanner/VideoListBanner";
+import FailureScreen from "../FailureScreen";
+import withHeaderAndSidebar from "../../hocs/withHeaderAndSideBar/withHeaderAndSideBar";
 
 interface HomeProps {
 }
@@ -29,22 +30,28 @@ const Trending = inject("videoStore", 'navigationStore')(observer((props: HomePr
 
     return (
 
-        <TrendingContainer>
-            <Header ></Header>
+        <>
+            <TrendingVideoWithBanner>
+                <VideoListBanner title={TRENDING} />
+                {videoStore.trendingVideosStatus === Status.SUCCESS &&
+                    <TrendingVideosList></TrendingVideosList>}
+                {
+                    videoStore.trendingVideosStatus === Status.ERROR &&
+                    <FailureScreen
+                        failureType={API_FAILURE}
+                        failureTitle="Oops! Something went wrong"
+                        failureMessage="We are having some trouble to complete your request. Please try again."
+                        onRetry={videoStore.fetchTrendingVideos}
+                    ></FailureScreen>
+                }
+            </TrendingVideoWithBanner>
 
-            <TrendingVideoBody>
-                <SideBar></SideBar>
-                <TrendingVideoWithBanner>
-                    <VideoListBanner title={TRENDING} />
-                    <TrendingVideosList ></TrendingVideosList>
-                </TrendingVideoWithBanner>
+        </>
 
 
 
-            </TrendingVideoBody>
 
 
-        </TrendingContainer>
     );
 }));
-export default Trending;
+export default withHeaderAndSidebar(Trending);

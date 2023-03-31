@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import { useEffect } from "react";
-import videoStore from "../../stores/VideoStore";
+import {videoStore} from "../../stores";
 import GamingVideoComponent from "../GamingVideoComponent";
 
 import { GamingVideosListContainer } from "./styledComponents";

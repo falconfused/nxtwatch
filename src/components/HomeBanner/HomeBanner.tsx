@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { observer } from "mobx-react";
 import { useEffect, useState } from "react";
 import { NXT_WATCH_LOGO_LIGHT } from "../../constants/ImageUrl";
-import navigationStore from "../../stores/NavigationStore";
+import { navigationStore}  from "../../stores";
 import { NxtWatchLogo } from "../LoginRoute/styledComponents";
 import { Button, HomeBannerContainer, HomeBannerDescription, HomeBannerHeading, HomeBannerLeftContainer, HomeBannerRightContainer, } from "./styledComponents"
 const HomeBanner = observer(() => {
@@ -14,7 +14,7 @@ const HomeBanner = observer(() => {
     }
 
 
-    return navigationStore.bannerState  ? (
+    return navigationStore.bannerState ? (
         <HomeBannerContainer>
 
             <HomeBannerLeftContainer>
@@ -28,9 +28,9 @@ const HomeBanner = observer(() => {
             <FontAwesomeIcon icon={
                 faClose
             }
-            style={{
-                marginRight: "20px",
-            }}
+                style={{
+                    marginRight: "20px",
+                }}
                 cursor="pointer"
                 onClick={onClickClose} />
         </HomeBannerContainer>

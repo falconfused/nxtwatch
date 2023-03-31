@@ -5,6 +5,8 @@ import { SelectedVideoOptionContainer, SelectedVideoOptionText } from "./styledC
 
 interface VideoOptionProps {
     name: string;
+    isActive: boolean;
+    onClick: () => void;
 }
 
 const SelectedVideoOption = (props: VideoOptionProps) => {
@@ -23,7 +25,7 @@ const SelectedVideoOption = (props: VideoOptionProps) => {
 
 
     return (
-        <SelectedVideoOptionContainer>
+        <SelectedVideoOptionContainer onClick={props.onClick} isSelected={props.isActive}>
             <FontAwesomeIcon 
             style={{marginRight: "10px"}}
             icon={logo} />

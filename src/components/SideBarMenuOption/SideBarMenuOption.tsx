@@ -8,7 +8,7 @@ import {
     faArrowDown
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import navigationStore from "../../stores/NavigationStore";
+import {navigationStore} from "../../stores";
 
 interface SideBarMenuOptionProps {
     handleOnClick: (route: string) => void;

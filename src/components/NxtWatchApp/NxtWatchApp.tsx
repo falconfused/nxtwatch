@@ -2,10 +2,10 @@ import { observer } from 'mobx-react';
 import { inject, Provider } from 'mobx-react';
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import LoginRoute from '../LoginRoute';
-import authStore from '../../stores/AuthStore/AuthStore';
-import videoStore from '../../stores/VideoStore/VideoStore';
+import { authStore } from '../../stores';
+import { videoStore } from '../../stores';
 import Home from '../Home/Home';
-import navigationStore from '../../stores/NavigationStore';
+import { navigationStore } from '../../stores';
 import { ThemeProvider } from "styled-components";
 import { ThemeStore } from '../../stores/ThemeStore/ThemeStore';
 import { Theme } from '../../constants/constants';
@@ -33,7 +33,7 @@ const NxtWatchApp = inject("themeStore")(observer((props: checkAppProps) => {
                 <ThemeProvider theme={themeStore.theme === Theme.LIGHT ? themeStore.themeLight : themeStore.themeDark} >
                     <Routes>
 
-                        <Route path='/' element={<LoginRoute />}/>
+                        <Route path='/' element={<LoginRoute />} />
                         <Route path='/home' element={<Home />} />
                         <Route path='/trending' element={<Trending />} />
                         <Route path='/saved' element={<Saved />} />

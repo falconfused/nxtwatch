@@ -13,6 +13,7 @@ export interface VideoInterface {
     title: string;
     video_url?: string;
     channel?: ChannelType;
+    description?: string;
     thumbnail_url: string;
     view_count: string;
     published_at?: string;

@@ -1,4 +1,2 @@
-import videoStore from "./VideoStore";
-import { VideoStore } from "./VideoStore";
-export default videoStore;
+import { VideoStore } from '../../stores/VideoStore/VideoStore'
 export { VideoStore };

@@ -1,15 +1,15 @@
 import styled from "styled-components";
 export const SelectedVideoPlayerOptionsContainer = styled.div`
     display: flex;
-    width: 80%;
+    width: 90%;
     flex-direction: column;
-    
+    /* height: 500px; */
     font-size: 18px;
     font-weight: 600;
     justify-content: center;
     color: ${props => props.theme.primaryTextColor};
-margin-top: 0px;
     margin: auto;
+    margin-top: 0px;
     
 `;
 

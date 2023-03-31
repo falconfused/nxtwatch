@@ -15,7 +15,18 @@ export const TWITTER_ICON =
 export const LINKEDIN_ICON =
     "https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png";
 export const HOME_BANNER_IMAGE =
-"https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png";
-    
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png";
+export const FAILURE_VIEW_IMAGE_LIGHT =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png";
+export const FAILURE_VIEW_IMAGE_DARK =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png";
+export const NO_VIDEOS_VIEW_IMAGE_LIGHT =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png";
+export const NO_VIDEOS_VIEW_IMAGE_DARK =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png";
+export const NO_SAVED_VIDEOS_VIEW_IMAGE =
+    "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png";
+
+
 
 

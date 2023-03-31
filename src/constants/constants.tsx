@@ -16,9 +16,6 @@ export const SAVED = 'saved';
 export const GAMING = 'gaming';
 
 
-
-
-
 export const HOME_PAGE_PATH = "/home";
 export const TRENDING_PAGE_PATH = "/trending";
 export const SAVED_PAGE_PATH = "/saved";
@@ -29,3 +26,8 @@ export const VIDEO_PAGE_PATH = "/video/:videoId";
 export const SAVE = 'save';
 export const LIKE = 'like';
 export const DISLIKE = 'dislike';
+
+
+export const API_FAILURE = 'API_FAILURE';
+export const NO_RESULTS = 'NO_RESULTS';
+export const NO_SAVED_VIDEOS = 'NO_SAVED_VIDEOS';

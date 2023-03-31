@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import { observable, action, computed } from "mobx";
 import { Status } from "../../constants/constants";
 import { toJS } from 'mobx';
-import VideosModel from "./models/homeVideosModel/VideosModel";
+import VideosModel from "./models/VideosModel/VideosModel";
 class VideoStore {
     @observable
     homeVideosList = [] as Array<VideosModel>;
@@ -43,13 +43,16 @@ class VideoStore {
     @action
     setLikedVideos = () => {
         console.log("this.likedVideosSet")
-        if (this.likedVideosSet.has(this.selectedVideoId)) {
-            this.likedVideosSet.delete(this.selectedVideoId);
+        if (this.likedVideosSet.has(this.selectedVideoDetails.id)) {
+            this.likedVideosSet.delete(this.selectedVideoDetails.id);
             return;
         }
-        this.likedVideosSet.add(this.selectedVideoId);
-        if (this.dislikedVideosSet.has(this.selectedVideoId))
-            this.dislikedVideosSet.delete(this.selectedVideoId);
+        else {
+            this.likedVideosSet.add(this.selectedVideoDetails.id);
+            if (this.dislikedVideosSet.has(this.selectedVideoDetails.id))
+                this.dislikedVideosSet.delete(this.selectedVideoDetails.id);
+        }
+
         console.log("1", this.likedVideosSet)
     }
 
@@ -57,13 +60,13 @@ class VideoStore {
     @action
     setDislikedVideos = () => {
         console.log(this.dislikedVideosSet)
-        if (this.dislikedVideosSet.has(this.selectedVideoId)) {
-            this.dislikedVideosSet.delete(this.selectedVideoId);
+        if (this.dislikedVideosSet.has(this.selectedVideoDetails.id)) {
+            this.dislikedVideosSet.delete(this.selectedVideoDetails.id);
             return;
         }
-        this.dislikedVideosSet.add(this.selectedVideoId);
-        if (this.likedVideosSet.has(this.selectedVideoId))
-            this.likedVideosSet.delete(this.selectedVideoId);
+        this.dislikedVideosSet.add(this.selectedVideoDetails.id);
+        if (this.likedVideosSet.has(this.selectedVideoDetails.id))
+            this.likedVideosSet.delete(this.selectedVideoDetails.id);
     }
 
 
@@ -167,7 +170,6 @@ class VideoStore {
             for (let i = 0; i < data.videos.length; i++) {
                 this.gamingVideosList = [...this.gamingVideosList, new VideosModel(data.videos[i])];
             }
-            console.log(toJS(this.gamingVideosList))
         }
         else {
             this.gamingVideosStatus = Status.ERROR;
@@ -184,35 +186,25 @@ class VideoStore {
             }
         };
         const response = await fetch(url, options);
-
         const data = await response.json();
-        console.log(data.video_details, "video details")
-
-
+        console.log(data)
         if (response.ok) {
             this.selectedVideoId = data.video_details.id;
             this.selectedVideoStatus = Status.SUCCESS;
             this.selectedVideoDetails = new VideosModel(data.video_details);
-
         }
+
         else {
             this.selectedVideoStatus = Status.ERROR;
         }
 
     }
 
-    @computed
-    get savedVideosLists() {
-        console.log(this.savedVideosList)
-        const filteredData = this.homeVideosList.filter(item => this.savedVideosList.includes(item));
-        console.log(filteredData)
-        return filteredData;
-    }
+
 
 
     @action
     calculateTime(publishedAt: string) {
-        console.log(publishedAt)
         const dateString = publishedAt;
         const date = new Date(dateString);
         const currentDate = new Date();
@@ -240,6 +232,4 @@ class VideoStore {
     }
 
 }
-const videoStore = new VideoStore();
-export default videoStore;
 export { VideoStore };

@@ -7,11 +7,11 @@ export const SideBarContainer = styled.div`
     width: 300px;
     height: 89.8vh;
     background-color: ${props => props.theme.primaryColor};
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
         display: none;
     }
 `;
-// console.log(themeStore.theme);
+
 export const SideBarMenuContainer = styled.div`
 
 height: 100%;

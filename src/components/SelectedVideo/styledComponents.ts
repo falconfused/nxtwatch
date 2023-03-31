@@ -18,6 +18,7 @@ flex-direction: row;
 export const SelectedVideoBody = styled.div`
 display: flex;
 flex-direction: column;
+/* justify-content: start; */
 height: 89.8vh;
-width: 70%;
+width: 100%;
 `;

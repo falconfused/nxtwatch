@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import Header from "../Header/Header";
-import { HomeContainer } from "../Home/styledComponents";
 import { inject, observer } from "mobx-react";
 import { VideoStore } from "../../stores/VideoStore/VideoStore";
-import SideBar from "../SideBar";
 import { NavigationStore } from "../../stores/NavigationStore/index";
-import { GAMING } from "../../constants/constants";
-import { GamingContainer, GamingVideoBody, GamingVideoWithBanner } from "./styledComponents";
+import { GAMING, Status } from "../../constants/constants";
+import {  GamingVideoWithBanner } from "./styledComponents";
 import VideoListBanner from "../VideoListBanner";
 import GamingVideosList from "../GamingVideosList";
+import FailureScreen from "../FailureScreen";
+import withHeaderAndSidebar from "../../hocs/withHeaderAndSideBar/withHeaderAndSideBar";
 
 interface HomeProps {
 }
@@ -28,22 +27,24 @@ const Gaming = inject("videoStore", 'navigationStore')(observer((props: HomeProp
 
     return (
 
-        <GamingContainer>
-            <Header ></Header>
-
-            <GamingVideoBody>
-                <SideBar></SideBar>
+        <>
                 <GamingVideoWithBanner>
-                    <VideoListBanner  title={GAMING} />
-                    <GamingVideosList ></GamingVideosList>
+                    <VideoListBanner title={GAMING} />
+                    {
+                        videoStore.gamingVideosStatus === Status.SUCCESS &&
+                        <GamingVideosList ></GamingVideosList>}
+                    {
+                        videoStore.gamingVideosStatus === Status.ERROR &&
+                        <FailureScreen
+                            failureType="API_FAILURE"
+                            failureTitle="Oops! Something went wrong"
+                            failureMessage="We are having some trouble to complete your request. Please try again."
+                            onRetry={videoStore.fetchGamingVideos}
+                        />
+                    }
+                    
                 </GamingVideoWithBanner>
-
-
-
-            </GamingVideoBody>
-
-
-        </GamingContainer>
+        </>
     );
 }));
-export default Gaming;
+export default withHeaderAndSidebar(Gaming);

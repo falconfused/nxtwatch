@@ -16,7 +16,7 @@ const VideoListBanner = (props: VideoListBannerProps) => {
         icon = faGamepad;
     }
     else if (title === SAVED) {
-        icon = faBaby;
+        icon = faFireFlameCurved;
     }
     return (
         <VideoListBannerContainer>

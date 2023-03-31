@@ -53,6 +53,5 @@ class AuthStore {
         this.token = undefined;
     }
 }
-const authStore = new AuthStore();
-export default authStore;
+
 export { AuthStore };

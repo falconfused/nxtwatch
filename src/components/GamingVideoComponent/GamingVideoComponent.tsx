@@ -1,4 +1,4 @@
-import videoStore from "../../stores/VideoStore";
+import {videoStore }  from "../../stores";
 import { GamingVideosLink } from "../Gaming/styledComponents";
 import {
     GamingVideoBottomContainer,

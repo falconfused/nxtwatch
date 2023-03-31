@@ -1,2 +1,2 @@
-import HomeVideosList from "../HomeVideosList";
-export default HomeVideosList;
+import TrendingVideosList from "./TrendingVideosList";
+export default TrendingVideosList;

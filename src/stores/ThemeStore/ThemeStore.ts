@@ -39,6 +39,5 @@ class ThemeStore {
     }
 }
 
-const themeStore = new ThemeStore();
-export default themeStore;
+
 export { ThemeStore };

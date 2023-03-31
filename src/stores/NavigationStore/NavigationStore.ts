@@ -18,6 +18,5 @@ class NavigationStore {
         this.currentRoute = route;
     };
 }
-const navigationStore = new NavigationStore();
-export default navigationStore;
-export { NavigationStore };
+
+export { NavigationStore};

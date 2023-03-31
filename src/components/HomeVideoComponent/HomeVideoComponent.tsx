@@ -1,4 +1,4 @@
-import videoStore from "../../stores/VideoStore";
+import {videoStore} from "../../stores";
 import { HomeVideoBottomContainer, HomeVideoContainer, HomeVideoDescription, HomeVideoDetailsContainer, HomeVideoImage, HomeVideoProfileImage, HomeVideoPublishedAt, HomeVideosLink, HomeVideoTitle } from "./styledComponents";
 import { Link } from "react-router-dom";
 const HomeVideoComponent = (props: any) => {

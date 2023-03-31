@@ -11,7 +11,7 @@ export const HomeBannerContainer = styled.div`
 
     width: 100%;
     color: black;
-    height:  1800px;  
+    /* height:  1800px;   */
     @media (max-width: 576px) {
         display: flex;
         flex-direction: row;
@@ -46,6 +46,8 @@ export const HomeBannerLeftContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    padding: 20px;
+
     background: none;
     @media (max-width: 576px) {
         display: flex;

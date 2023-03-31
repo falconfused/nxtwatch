@@ -1,4 +1,4 @@
-import videoStore from "../../stores/VideoStore";
+import {videoStore} from "../../stores";
 import { TrendingVideoContainer, TrendingVideoDescription, TrendingVideoDetailsContainer, TrendingVideoImage, TrendingVideoProfileImage, TrendingVideoPublishedAt, TrendingVideoRightContainer, TrendingVideosLink, TrendingVideoTitle } from "./styledComponents";
 
 const TrendingVideoComponent = (props: any) => {
