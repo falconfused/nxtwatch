@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const SubmitButton = styled.button`
-    width: 20%;
+    width: 80%;
     height: 40px;
     border-radius: 4px;
     background-color: #352fe2;
