@@ -5,7 +5,7 @@ import { Status, Theme } from '../../constants/constants';
 import Cookies from 'js-cookie';
 
 import { useNavigate } from 'react-router-dom';
-import { ErrorMesage, LoginContainer, LoginForm, NxtWatchLogo, ShowPasswordCheckBox, ShowPasswordContainer, ShowPasswordLabel, SubmitButton } from './styledComponents';
+import { ErrorMesage, ErrorMesageContainer, LoginContainer, LoginForm, NxtWatchLogo, ShowPasswordCheckBox, ShowPasswordContainer, ShowPasswordLabel, SubmitButton } from './styledComponents';
 import InputField from '../InputField/InputField';
 import { ThemeStore } from '../../stores/ThemeStore/ThemeStore';
 import { NXT_WATCH_LOGO_DARK, NXT_WATCH_LOGO_LIGHT } from '../../constants/ImageUrl';
@@ -101,7 +101,7 @@ const LoginRoute =
                         authStore.loginStatus === Status.LOADING ? "Loading" :
                             "Submit"
                     }</SubmitButton>
-                    {showErrorMessage && <ErrorMesage theme={theme}>{errorMessage}</ErrorMesage>}
+                    {showErrorMessage && <><ErrorMesageContainer><ErrorMesage theme={theme}>*{errorMessage}</ErrorMesage></ErrorMesageContainer></>}
 
                 </LoginForm>
             </LoginContainer>

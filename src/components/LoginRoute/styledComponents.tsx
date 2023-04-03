@@ -54,7 +54,7 @@ export const Input = styled.input`
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 100%;
+    /* width: 100%; */
     height: 40px;
     border-radius: 4px;
     border: solid 1px #dfe1e6;
@@ -102,6 +102,16 @@ export const ShowPasswordContainer = styled.div`
 export const ShowPasswordLabel = styled.label`
 width: 90%;
 `;
+
+export const ErrorMesageContainer = styled.div`
+    display: flex;
+
+    flex-direction: row;
+    justify-content: start; 
+    width: 80%;
+    height: 20px;
+    margin-bottom: 10px;
+    `;
 export const ErrorMesage = styled.p`
 
     color: red;
@@ -109,5 +119,5 @@ export const ErrorMesage = styled.p`
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
-    text-align: center;
+    /* text-align: center; */
 `;
