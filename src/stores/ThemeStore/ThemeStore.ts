@@ -4,15 +4,11 @@ class ThemeStore {
     @observable theme: Theme = Theme.LIGHT;
     @observable themeLight = {
         backgroundColor: "white",
-        color: "black",
         borderColor: "black",
         activeColor: "#F3F6F9",
         bodyColor: "#F1F1F1",
-        boxShadow: "0px 0px 0px 0px",
         primaryColor: "#F9F8F5",
-        secondaryColor: "#353431",
         primaryTextColor: "black",
-        secondaryTextColor: "white",
         primaryBorderColor: "black",
         optionActiveColor: "blue",
         searchIconColor: "#F3F2F1"

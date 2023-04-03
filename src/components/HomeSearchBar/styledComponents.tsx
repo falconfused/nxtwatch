@@ -12,7 +12,7 @@ margin-right: auto;
         justify-content: center;
 
     }
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
     ;`
 
 export const SearchBarContainer = styled.div`
