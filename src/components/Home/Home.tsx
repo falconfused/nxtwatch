@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Header from "../Header/Header";
 import { HomeContainerWithBanner } from "./styledComponents";
 import { inject, observer } from "mobx-react";
 import { VideoStore } from "../../stores/VideoStore/VideoStore";
@@ -10,7 +9,6 @@ import HomeVideosList from "../HomeVideosList/index";
 import { API_FAILURE, HOME, NO_RESULTS, Status } from "../../constants/constants";
 import FailureScreen from "../FailureScreen";
 import withHeaderAndSidebar from "../../hocs/withHeaderAndSideBar/withHeaderAndSideBar";
-import { videoStore } from "../../stores";
 interface HomeProps {
 }
 interface injectedProps extends HomeProps {
