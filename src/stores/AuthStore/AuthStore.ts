@@ -3,15 +3,7 @@ import { action, observable } from 'mobx';
 
 import { Status } from '../../constants/constants';
 
-interface AuthStoreProps {
-    errorMessage: string;
-    loginStatus: Status;
-    token: string;
 
-
-    login: (username: string, password: string) => Promise<void>;
-    logout: () => void;
-}
 
 
 class AuthStore {

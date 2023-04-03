@@ -15,7 +15,7 @@ const HomeSearchBar = () => {
     return (
         <SearchBarDiv>
         <SearchBarContainer>
-            <Input onChange={handleChange}></Input>
+            <Input placeholder="Search" onChange={handleChange}></Input>
             <SearchIcon  onClick={onClickSearch}>
                 <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
             </SearchIcon>
