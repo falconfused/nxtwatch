@@ -15,6 +15,7 @@ class ThemeStore {
         secondaryTextColor: "white",
         primaryBorderColor: "black",
         optionActiveColor: "blue",
+        searchIconColor: "#F3F2F1"
 
     }
     @observable themeDark = {
@@ -30,6 +31,8 @@ class ThemeStore {
         secondaryTextColor: "black",
         primaryBorderColor: "white",
         optionActiveColor: "blue",
+        searchIconColor: "#383736",
+
 
 
     }

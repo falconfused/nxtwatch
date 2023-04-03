@@ -12,6 +12,7 @@ margin-right: auto;
         justify-content: center;
 
     }
+    /* margin-bottom: 20px; */
     ;`
 
 export const SearchBarContainer = styled.div`
@@ -21,14 +22,15 @@ export const SearchBarContainer = styled.div`
     justify-content: start;
     /* width: 90%; */
     height: 25px;
-    max-width: 300px;
     text-decoration: none;
     box-shadow: none;
     /* margin: auto; */
-    border: solid 1px ${props => props.theme.borderColor};
+    border: solid 1px ${props => props.theme.secondaryColor};
+    
 
     color : ${props => props.theme.primaryTextColor};
         background-color: ${props => props.theme.primaryColor};
+        background-color: ${props => props.theme.searchIconColor};
 
     margin-top: 0px;
     margin-bottom: 0px;
@@ -47,6 +49,8 @@ export const Input = styled.input`
     height: 25px;
     /* border-radius: 4px; */
     border:none;
+    min-width: 350px;
+
     background-color: transparent;
     /* border: solid 1px ${props => props.theme.borderColor}; */
     color: ${props => props.theme.primaryTextColor};
@@ -67,7 +71,6 @@ margin-right: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
    
     margin-left: 10px;
 `;
