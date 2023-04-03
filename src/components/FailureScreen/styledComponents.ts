@@ -15,6 +15,10 @@ export const FailureScreenContainer = styled.div`
 export const FailureScreenImage = styled.img`
     width: 400px;
     height: 400px;
+    @media (max-width: 576px) {
+        width: 200px;
+        height: 200px;
+    }
     `;
 
 export const FailureScreenHeading = styled.h3`

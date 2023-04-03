@@ -11,6 +11,7 @@ export const HomeBannerContainer = styled.div`
 
     width: 100%;
     color: black;
+    /* margin: auto; */
     /* height:  1800px;   */
     @media (max-width: 576px) {
         display: flex;
@@ -84,5 +85,27 @@ export const Button = styled.button`
   margin-left: 10px;
   cursor: pointer;
 `;
+
+export const HomeBannerContentContainer = styled.div`
+    
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+
+    width: 90%;
+    color: black;
+    /* margin: auto; */
+    /* height:  1800px;   */
+    @media (max-width: 576px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+
+        margin: auto;
+    }
+    margin-bottom: 0px;
+    `;
 
 // HomeBannerContainer, HomeBannerContent, HomeBannerDescription,  HomeBannerHeading,

@@ -3,18 +3,21 @@ import styled from "styled-components";
 
 export const TrendingVideoContainer = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 /* width: 80%; */
 /* margin: auto; */
 
 height: 250px;
-max-width: 700px;
+/* max-width: 700px; */
 margin: 20px;
 margin-top: 10px;
 margin-bottom: 0px;
 cursor: pointer;
 /* flex-direction: row; */
 @media (max-width: 768px) {
+ width: 100%;
+ height: auto;
+    display: flex;
 flex-direction: column;
 text-align: center;
 align-items: center;
@@ -70,5 +73,14 @@ export const TrendingVideosLink = styled(Link)`
 text-decoration: none;
 display: flex;
 flex-direction: row;
-color: ${props=>props.theme.primaryTextColor};
+@media (max-width: 768px) {
+    display: flex;
+    height: auto;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+color: ${props => props.theme.primaryTextColor};
 `; 

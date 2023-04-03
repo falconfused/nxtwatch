@@ -1,17 +1,39 @@
 import styled from "styled-components";
 
+export const SearchBarDiv = styled.div`
+    width: 90%;
+    display: flex;
+    /* height: 20px; */
+    /* margin: auto; */
+margin-left: auto;
+margin-right: auto;
+    flex-direction: row;
+    @media (max-width: 768px) {
+        justify-content: center;
+
+    }
+    ;`
+
 export const SearchBarContainer = styled.div`
     display: flex;  
     flex-direction: row;
     align-items: center;
-    width: 90%;
-    height: 60px;
-    
-    margin: auto;
+    justify-content: start;
+    /* width: 90%; */
+    height: 25px;
+    max-width: 300px;
+    text-decoration: none;
+    box-shadow: none;
+    /* margin: auto; */
+    border: solid 1px ${props => props.theme.borderColor};
+
     color : ${props => props.theme.primaryTextColor};
-    background-color: ${props => props.theme.bodyColor};
+        background-color: ${props => props.theme.primaryColor};
+
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-top: 20px;
+
 /* margin-left: 0px; */
 
 `;
@@ -20,22 +42,26 @@ export const Input = styled.input`
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 30%;
-    min-width: 300px;
+    /* width: 30%; */
+    /* min-width: 300px; */
     height: 25px;
-    border-radius: 4px;
-    border: solid 1px #dfe1e6;
-    background-color: ${props => props.theme.primaryColor};
+    /* border-radius: 4px; */
+    border:none;
+    background-color: transparent;
+    /* border: solid 1px ${props => props.theme.borderColor}; */
     color: ${props => props.theme.primaryTextColor};
+    border-right: solid 1px ${props => props.theme.borderColor};
+    
+
     padding-left: 10px;
     outline: none;
-    &:focus {
-        border: solid 1px #f7931e;
-    }
+
 `;
 export const SearchIcon = styled.div`
     /* width: 70px; */
-    height: 64px;
+    height: 25px;
+    /* margin-top: 20px; */
+margin-right: 10px;
     cursor: pointer;
     display: flex;
     flex-direction: row;

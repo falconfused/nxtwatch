@@ -1,6 +1,5 @@
 
 import { inject, observer } from 'mobx-react';
-import { themeStore } from '../../stores';
 import { ThemeStore } from '../../stores/ThemeStore';
 import Header from '../../components/Header';
 import SideBar from '../../components/SideBar';
@@ -10,14 +9,9 @@ import { WithHeaderAndSidebarContainer } from './styledComponents';
 
 interface WithHeaderAndSidebarProps {
 }
-interface injectedProps extends WithHeaderAndSidebarProps {
-    themeStore: ThemeStore;
-}
-
-
 const withHeaderAndSidebar = (WrappedComponent: React.FC) => {
     const WithHeaderAndSidebarComponent =
-        inject("themeStore")(observer((props: WithHeaderAndSidebarProps) => {
+        observer((props: WithHeaderAndSidebarProps) => {
 
             return (
                 <HomeContainer>
@@ -28,7 +22,7 @@ const withHeaderAndSidebar = (WrappedComponent: React.FC) => {
                     </WithHeaderAndSidebarContainer>
                 </HomeContainer>
             );
-        }));
+        });
 
     return WithHeaderAndSidebarComponent;
 };

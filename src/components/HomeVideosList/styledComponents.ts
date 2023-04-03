@@ -6,12 +6,13 @@ export const HomeVideosListContainer = styled.div`
     
     margin: auto;
     margin-top: 0px;
-    width: 100%;
+    width: 90%;
     
-
     @media (max-width: 1400px) {
-    justify-content: center;
+        justify-content: center;
+    
     }
-    overflow-y: auto;
+    overflow: hidden;
+    overflow-y:scroll;
     
 `;

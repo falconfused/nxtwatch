@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Theme } from '../../constants/constants';
 export const HeaderOptions = styled.div`
 
-@media (max-width: 476px) {
+@media (max-width: 768px) {
         display: none;
     }
     width: 200px;
@@ -21,7 +21,7 @@ export const HeaderOptionsMobile = styled.div`
     align-items: center;
     justify-content: space-between;
     /* margin: 16px; */
-    @media (min-width: 476px) {
+    @media (min-width: 768px) {
         display: none;
     }
 `;

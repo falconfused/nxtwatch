@@ -15,6 +15,8 @@ import {
 import { Theme } from "../../constants/constants";
 import { useNavigate } from "react-router-dom";
 import Modal from "../LogoutModal/index";
+import { navigationStore } from "../../stores";
+import SideBarModal from "../SideBarModal";
 
 interface HeaderProps {
 }
@@ -31,7 +33,11 @@ const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) =
     const theme = themeStore.theme;
     const [logoutModal, setLogoutModal] = useState(false);
     const [token, setToken] = useState(authStore.token);
+    const [showSideBarInMobile, setShowSideBarInMobile] = useState(false);
 
+    const toChangeSideBarShowStatus = () => {
+        setShowSideBarInMobile(!showSideBarInMobile);
+    }
     const navigate = useNavigate();
 
 
@@ -55,6 +61,7 @@ const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) =
     }
     return (
         <Fragment>
+            <SideBarModal show={showSideBarInMobile} setSideBarState={setShowSideBarInMobile} />
             <HeaderContainer theme={theme}>
                 <NxtWatchLogo src={theme === Theme.DARK ? NXT_WATCH_LOGO_DARK : NXT_WATCH_LOGO_LIGHT} alt="nxt watch logo" />
                 <HeaderOptions>
@@ -65,7 +72,7 @@ const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) =
 
                 <HeaderOptionsMobile>
                     <ThemeButtonComponent theme={theme} onChangeTheme={onChangeTheme}></ThemeButtonComponent>
-                    <FontAwesomeIcon icon={faBars} size="lg" color={theme === Theme.LIGHT ? "#2021F" : "white"}></FontAwesomeIcon>
+                    <FontAwesomeIcon onClick={toChangeSideBarShowStatus} cursor="pointer" icon={faBars} size="lg" color={theme === Theme.LIGHT ? "#2021F" : "white"}></FontAwesomeIcon>
                     <LogOut theme={theme} type={"mobile"} handleLogOut={updateLogoutModal}></LogOut>
                 </HeaderOptionsMobile>
             </HeaderContainer >

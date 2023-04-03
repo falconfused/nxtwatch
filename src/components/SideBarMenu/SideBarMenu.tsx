@@ -4,6 +4,7 @@ import SideBarMenuOption from "../SideBarMenuOption/index";
 import { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GAMING, GAMING_PAGE_PATH, HOME, HOME_PAGE_PATH, SAVED, SAVED_PAGE_PATH, TRENDING, TRENDING_PAGE_PATH } from "../../constants/constants";
+import { SideBarMenuContainer } from "../SideBar/styledComponents";
 interface SideBarMenuProps {
 
 }
@@ -40,12 +41,12 @@ const SideBarMenu = inject("navigationStore")(observer((props: SideBarMenuProps)
     }
 
     return (
-        <Fragment>
+        <SideBarMenuContainer>
             <SideBarMenuOption handleOnClick={handleOnClick} optionText="Home" optionRoute="home" />
             <SideBarMenuOption handleOnClick={handleOnClick} optionText="Trending" optionRoute="trending" />
             <SideBarMenuOption handleOnClick={handleOnClick} optionText="Gaming" optionRoute="gaming" />
             <SideBarMenuOption handleOnClick={handleOnClick} optionText="Saved" optionRoute="saved" />
-        </Fragment>
+        </SideBarMenuContainer>
     );
 }));
 export default SideBarMenu;

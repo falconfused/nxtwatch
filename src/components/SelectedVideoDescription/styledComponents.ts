@@ -44,7 +44,6 @@ export const SelectedVideoDescriptionRightContainer = styled.div`
     margin-left: 20px;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     `;
 
 

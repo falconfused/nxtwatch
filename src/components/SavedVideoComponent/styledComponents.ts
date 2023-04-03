@@ -18,6 +18,7 @@ cursor: pointer;
 flex-direction: column;
 text-align: center;
 align-items: center;
+height: auto;
 }
 
 border-radius: 5px;
@@ -70,5 +71,14 @@ export const SavedVideosLink = styled(Link)`
 text-decoration: none;
 display: flex;
 flex-direction: row;
+@media (max-width: 768px) {
+    display: flex;
+    height: auto;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
 color: ${props=>props.theme.primaryTextColor};
 `; 

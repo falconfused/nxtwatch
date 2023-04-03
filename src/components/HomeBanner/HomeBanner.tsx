@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { NXT_WATCH_LOGO_LIGHT } from "../../constants/ImageUrl";
 import { navigationStore}  from "../../stores";
 import { NxtWatchLogo } from "../LoginRoute/styledComponents";
-import { Button, HomeBannerContainer, HomeBannerDescription, HomeBannerHeading, HomeBannerLeftContainer, HomeBannerRightContainer, } from "./styledComponents"
+import { Button, HomeBannerContainer, HomeBannerContentContainer, HomeBannerDescription, HomeBannerHeading, HomeBannerLeftContainer, HomeBannerRightContainer, } from "./styledComponents"
 const HomeBanner = observer(() => {
 
 
@@ -16,8 +16,9 @@ const HomeBanner = observer(() => {
 
     return navigationStore.bannerState ? (
         <HomeBannerContainer>
-
-            <HomeBannerLeftContainer>
+<HomeBannerContentContainer
+>
+<HomeBannerLeftContainer>
                 <NxtWatchLogo src={NXT_WATCH_LOGO_LIGHT} />
                 <HomeBannerDescription>
                     Buy Nxt Watch Premium Prepaid Plans with <br /> UPI!
@@ -33,6 +34,9 @@ const HomeBanner = observer(() => {
                 }}
                 cursor="pointer"
                 onClick={onClickClose} />
+
+</HomeBannerContentContainer>
+            
         </HomeBannerContainer>
 
     ) : null;

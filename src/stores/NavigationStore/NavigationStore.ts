@@ -4,9 +4,17 @@ class NavigationStore {
     @observable
     public currentRoute: string = '';
 
-
+    // @observable
+    //  sideBarStateinMobile: boolean = false;
 
     @observable bannerState: boolean = true;
+
+
+    // @action
+    // setSideBarState = (state: boolean) => {
+    //     this.sideBarStateinMobile = state;
+    // };
+
 
     @action
     setBannerState = (state: boolean) => {
@@ -19,4 +27,4 @@ class NavigationStore {
     };
 }
 
-export { NavigationStore};
+export { NavigationStore };

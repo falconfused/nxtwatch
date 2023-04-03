@@ -33,7 +33,7 @@ export const LoginForm = styled.div`
     align-items: center;
     justify-content: center;
     width: 400px;
-    height: 400px;
+    padding: 20px;
     background-color: ${props => props.theme.primaryColor};
     border-radius: 4px;
 
@@ -42,7 +42,7 @@ export const LoginForm = styled.div`
 export const NxtWatchLogo = styled.img`
 
     width: 150px;
-    height:50px;
+    height:40px;
     margin-bottom: 20px;
     @media (max-width: 576px) {
         width: 80px;

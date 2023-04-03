@@ -15,8 +15,17 @@ export const SideBarMenuOptionContainer = styled.div<SideBarMenuOptionContainerP
    
     height: 48px;
     cursor: pointer;
+    font-weight: ${props=>props.isActive === props.optionRoute ? 800 : 400};
     background-color: ${props =>
         props.isActive === props.optionRoute ? props.theme.activeColor : "none"};
+
+
+        @media (max-width: 576px) {
+
+/* width: 100%; */
+
+        }
+
 `;
 
 export const SideBarMenuOptionIcon = styled.div`
@@ -33,7 +42,7 @@ color: ${(props) => props.theme.primaryTextColor};
 export const SideBarIcon = styled.div`
 width: 24px;
 height: 24px;
-color: ${props=>props.theme.primaryTextColor};
+color: ${props => props.theme.primaryTextColor};
 margin-right: 16px;
 `;
 
