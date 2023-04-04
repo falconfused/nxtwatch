@@ -11,11 +11,7 @@ const root = ReactDOM.createRoot(
 const themeStore = new ThemeStore();
 root.render(
 
-  <Provider themeStore={themeStore}><App /></Provider>
-
+  <App />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
