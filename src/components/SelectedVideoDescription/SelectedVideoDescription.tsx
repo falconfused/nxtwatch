@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { observer } from "mobx-react";
 import { videoStore } from "../../stores";
 import { SelectedProfileImage, SelectedVideoDescriptionContainer, SelectedVideoDescriptionRightContainer, VideoDescription, VideoSubscribers, VideoTitle } from "./styledComponents";
-import { observer } from "mobx-react";
 
 const SelectedVideoDescription = observer(() => {
   
@@ -9,7 +8,6 @@ const SelectedVideoDescription = observer(() => {
     const subscribers = videoStore.selectedVideoDetails.channel && videoStore.selectedVideoDetails.channel.subscriberCount;
     const profileImage = videoStore.selectedVideoDetails.channel && videoStore.selectedVideoDetails.channel.profileImageUrl;
     const videoDescription = videoStore.selectedVideoDetails.description;
-    console.log(videoStore.selectedVideoDetails.description);
 
     return (
         <SelectedVideoDescriptionContainer>

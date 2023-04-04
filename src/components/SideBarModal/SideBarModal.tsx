@@ -14,7 +14,7 @@ const SideBarModal = (props: SideBarModalProps) => {
         }
     };
     return (
-        <SideBarModalWrapper show={props.show} onClick={closeModal}>
+        <SideBarModalWrapper show={props.show} onClick={closeModal} >
             <SideBarModalContent>{
                 <SideBar show={props.show} />
             }</SideBarModalContent>

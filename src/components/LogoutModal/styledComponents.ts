@@ -27,24 +27,39 @@ background-color: ${props => props.theme.backgroundColor};
 export const ModalMessage = styled.p`
 background-color: ${props => props.theme.backgroundColor};
 color: ${props => props.theme.primaryTextColor};
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 0 20px 0;
 `;
 
 export const ButtonContainer = styled.div`
+padding: 20px;
+padding-top: 0px;
+padding-bottom: 0px;
 background-color: ${props => props.theme.backgroundColor};
 color: ${props => props.theme.primaryTextColor};
   display: flex;
   justify-content: flex-end;
 `;
 
-export const Button = styled.button`
-  font-size: 18px;
-  background-color: ${props => props.theme.backgroundColor};
-  padding: 10px 20px;
-  border: 1px solid ${props => props.theme.primaryTextColor};
-  border-radius: 5px;
-    color: ${props => props.theme.primaryTextColor};
-  margin-left: 10px;
-  cursor: pointer;
+interface ButtonProps {
+  types?: string;
+}
+
+export const SubmitButton = styled.button<ButtonProps>`
+    width: 50%;
+    height: 40px;
+    border-radius: 4px;
+    /* background-color: ; */
+    /* color: ; */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border:1px solid ${props => (props.types && props.types === "Close")? props.theme.primaryTextColor: "none"};
+    background-color:${props => (props.types && props.types === "Close")? "transparent": "#352fe2"};
+    color:${props => (props.types && props.types === "Close")? props.theme.primaryTextColor: "#ffffff"};
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: 10px;
 `;

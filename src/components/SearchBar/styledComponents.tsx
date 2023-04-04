@@ -49,7 +49,7 @@ export const Input = styled.input`
     height: 25px;
     /* border-radius: 4px; */
     border:none;
-    min-width: 350px;
+    min-width: 300px;
 
     background-color: transparent;
     /* border: solid 1px ${props => props.theme.borderColor}; */

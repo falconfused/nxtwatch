@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const GamingVideosListContainer = styled.div`
     display: flex;
-flex-wrap: wrap;
+    flex-wrap: wrap;
     background-color: ${props => props.theme.bodyColor};
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,5 +14,5 @@ flex-wrap: wrap;
     @media (max-width: 1400px) {
     justify-content: center;
     }
-    overflow-y: scroll;
+    overflow-y: auto;
     `;

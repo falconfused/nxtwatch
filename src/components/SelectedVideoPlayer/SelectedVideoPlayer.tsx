@@ -1,8 +1,7 @@
-import { SelectedVideoPlayerContainer } from "./styledComponents";
+import { observer } from "mobx-react";
 import ReactPlayer from "react-player";
 import {videoStore} from "../../stores";
-import { observer } from "mobx-react";
-import SelectedVideoPlayerOptions from "../SelectedVideoPlayerOptions";
+import { SelectedVideoPlayerContainer } from "./styledComponents";
 const SelectedVideoPlayer = observer(() => {
 
     return (

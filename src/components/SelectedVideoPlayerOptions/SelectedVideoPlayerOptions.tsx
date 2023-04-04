@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { observer } from "mobx-react";
 import { DISLIKE, LIKE, SAVE } from "../../constants/constants";
 import {videoStore} from "../../stores";
 import SelectedVideoOption from "../SelectedVideoOption";
 import { SelectedVideoPlayerOptionsBottomContainer, SelectedVideoPlayerOptionsContainer, SelectedVideoPlayerOptionsLeftContainer, SelectedVideoPlayerOptionsRightContainer } from "./styledComponents";
-import { observer } from "mobx-react";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 interface SelectedVideoPlayerOptionsProps {
     

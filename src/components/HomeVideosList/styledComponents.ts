@@ -9,10 +9,9 @@ export const HomeVideosListContainer = styled.div`
     width: 90%;
     
     @media (max-width: 1400px) {
-        justify-content: start;
+        justify-content: center;
     
     }
-    overflow: hidden;
-    overflow-y:scroll;
+    overflow-y:auto;
     
 `;

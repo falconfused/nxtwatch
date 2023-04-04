@@ -1,21 +1,27 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {videoStore} from "../../stores";
+import InputFieldSearchBar from "../InputFieldSearchBar";
 import { Input } from "./styledComponents";
 import { SearchBarDiv,SearchBarContainer, SearchIcon } from "./styledComponents";
 
-const HomeSearchBar = () => {
+
+interface HomeSearchBarProps {
+    onClickSearch: () => void;
+}
+
+const SearchBar = (props:HomeSearchBarProps) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         videoStore.searchInput = event.target.value;
 
     }
     const onClickSearch = () => {
-        videoStore.fetchHomeVideos();
+        props.onClickSearch();
     }
     return (
         <SearchBarDiv>
         <SearchBarContainer>
-            <Input placeholder="Search" onChange={handleChange}></Input>
+            <InputFieldSearchBar  placeholder="Search" onChange={handleChange} />
             <SearchIcon  onClick={onClickSearch}>
                 <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
             </SearchIcon>
@@ -23,4 +29,4 @@ const HomeSearchBar = () => {
         </SearchBarDiv>
     )
 }
-export default HomeSearchBar;
+export default SearchBar;

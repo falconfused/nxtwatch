@@ -1,4 +1,4 @@
-import { faBaby, faFireFlameCurved, faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { faFireFlameCurved, faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { GAMING, SAVED, TRENDING } from "../../constants/constants";
 import { VideoListBannerContainer, VideoListBannerImage, VideoListBannerImageContainer, VideoListBannerTitle } from "./styledComponents";
 interface VideoListBannerProps {

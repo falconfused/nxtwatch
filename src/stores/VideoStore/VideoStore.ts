@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
 import { observable, action, computed } from "mobx";
 import { Status } from "../../constants/constants";
-import { toJS } from 'mobx';
 import VideosModel from "./models/VideosModel/VideosModel";
 class VideoStore {
     @observable
@@ -42,7 +41,6 @@ class VideoStore {
 
     @action
     setLikedVideos = () => {
-        console.log("this.likedVideosSet")
         if (this.likedVideosSet.has(this.selectedVideoDetails.id)) {
             this.likedVideosSet.delete(this.selectedVideoDetails.id);
             return;
@@ -53,13 +51,11 @@ class VideoStore {
                 this.dislikedVideosSet.delete(this.selectedVideoDetails.id);
         }
 
-        console.log("1", this.likedVideosSet)
     }
 
 
     @action
     setDislikedVideos = () => {
-        console.log(this.dislikedVideosSet)
         if (this.dislikedVideosSet.has(this.selectedVideoDetails.id)) {
             this.dislikedVideosSet.delete(this.selectedVideoDetails.id);
             return;
@@ -72,7 +68,6 @@ class VideoStore {
 
     @action
     setSavedVideos = () => {
-        console.log(this.savedVideosList)
         if (this.savedVideosList.some(obj => obj.id === this.selectedVideoDetails.id)) {
             this.savedVideosList = this.savedVideosList.filter((obj) => obj.id !== this.selectedVideoDetails.id)
             return;
@@ -93,32 +88,36 @@ class VideoStore {
                 Authorization: `Bearer ${Cookies.get('jwt_token')}`
             }
         };
-        const response = await fetch(url, options);
-        const data = await response.json();
-        if (response.ok) {
-            this.homeVideosStatus = Status.SUCCESS;
-            if (this.searchInput.length > 0) {
-                let addedVideoList = data.videos.filter((eachVideo: any) => eachVideo.title.toLowerCase().includes(this.searchInput.toLowerCase()));
-                this.homeVideosList = [];
-                for (let i = 0; i < addedVideoList.length; i++) {
-                    this.homeVideosList = [...this.homeVideosList, new VideosModel(addedVideoList[i])];
-                }
-                const hey = toJS(this.homeVideosList)
-                console.log(hey)
-            }
-            else {
-                this.homeVideosList = [];
-                for (let i = 0; i < data.total; i++) {
-                    this.homeVideosList = [...this.homeVideosList, new VideosModel(data.videos[i])];
-                }
-                const hey = toJS(this.homeVideosList)
-                console.log(hey)
 
+
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            if (response.ok) {
+                this.homeVideosStatus = Status.SUCCESS;
+                if (this.searchInput.length > 0) {
+                    let addedVideoList = data.videos.filter((eachVideo: any) => eachVideo.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+                    this.homeVideosList = [];
+                    for (let i = 0; i < addedVideoList.length; i++) {
+                        this.homeVideosList = [...this.homeVideosList, new VideosModel(addedVideoList[i])];
+                    }
+                }
+                else {
+                    this.homeVideosList = [];
+                    for (let i = 0; i < data.total; i++) {
+                        this.homeVideosList = [...this.homeVideosList, new VideosModel(data.videos[i])];
+                    }
+
+                }
             }
-        }
-        else {
+        } catch (error) {
             this.homeVideosStatus = Status.ERROR;
+
         }
+        ;
+
+
+
 
     }
 
@@ -132,21 +131,25 @@ class VideoStore {
                 Authorization: `Bearer ${Cookies.get('jwt_token')}`
             }
         };
-        const response = await fetch(url, options);
-        const data = await response.json();
-        console.log(data)
 
-        if (response.ok) {
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
 
-            this.trendingVideosStatus = Status.SUCCESS;
-            this.trendingVideosList = [];
-            for (let i = 0; i < data.videos.length; i++) {
-                this.trendingVideosList = [...this.trendingVideosList, new VideosModel(data.videos[i])];
+            if (response.ok) {
+
+                this.trendingVideosStatus = Status.SUCCESS;
+                this.trendingVideosList = [];
+                for (let i = 0; i < data.videos.length; i++) {
+                    this.trendingVideosList = [...this.trendingVideosList, new VideosModel(data.videos[i])];
+                }
             }
-        }
-        else {
+        } catch (error) {
             this.trendingVideosStatus = Status.ERROR;
+
         }
+
+
     }
     @action
     fetchGamingVideos = async () => {
@@ -160,20 +163,22 @@ class VideoStore {
             }
 
         };
-        const response = await fetch(url, options);
-        const data = await response.json();
-        console.log(data)
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
 
-        if (response.ok) {
-            this.gamingVideosStatus = Status.SUCCESS;
-            this.gamingVideosList = [];
-            for (let i = 0; i < data.videos.length; i++) {
-                this.gamingVideosList = [...this.gamingVideosList, new VideosModel(data.videos[i])];
+            if (response.ok) {
+                this.gamingVideosStatus = Status.SUCCESS;
+                this.gamingVideosList = [];
+                for (let i = 0; i < data.videos.length; i++) {
+                    this.gamingVideosList = [...this.gamingVideosList, new VideosModel(data.videos[i])];
+                }
             }
-        }
-        else {
+        } catch (error) {
             this.gamingVideosStatus = Status.ERROR;
         }
+
+
     }
     @action
     fetchSelectedVideoDetails = async (id: string) => {
@@ -185,24 +190,22 @@ class VideoStore {
                 Authorization: `Bearer ${Cookies.get('jwt_token')}`
             }
         };
-        const response = await fetch(url, options);
-        const data = await response.json();
-        console.log(data)
-        if (response.ok) {
-            this.selectedVideoId = data.video_details.id;
-            this.selectedVideoStatus = Status.SUCCESS;
-            this.selectedVideoDetails = new VideosModel(data.video_details);
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            if (response.ok) {
+                this.selectedVideoId = data.video_details.id;
+                this.selectedVideoStatus = Status.SUCCESS;
+                this.selectedVideoDetails = new VideosModel(data.video_details);
+            }
+        } catch (error) {
+
+            this.selectedVideoStatus = Status.ERROR;
+
         }
 
-        else {
-            this.selectedVideoStatus = Status.ERROR;
-        }
 
     }
-
-
-
-
     @action
     calculateTime(publishedAt: string) {
         const dateString = publishedAt;

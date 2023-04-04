@@ -1,5 +1,7 @@
-import {videoStore }  from "../../stores";
-import { GamingVideosLink } from "../Gaming/styledComponents";
+import { observer, inject } from "mobx-react";
+import { GamingVideosLink } from "../../routes/Gaming/styledComponents";
+import { VideoStore } from "../../stores/VideoStore";
+import VideosModel from "../../stores/VideoStore/models/VideosModel/VideosModel";
 import {
     GamingVideoBottomContainer,
     GamingVideoContainer,
@@ -9,9 +11,17 @@ import {
     GamingVideoTitle
 } from "./styledComponents";
 
-const GamingVideoComponent = (props: any) => {
+interface GamingVideoComponentProps {
+    video: VideosModel;
+}
+interface InjectedProps extends GamingVideoComponentProps {
+    videoStore: VideoStore;
+}
+
+const GamingVideoComponent = inject("videoStore")(observer((props: any) => {
 
     const { video } = props;
+    const { videoStore } = props as InjectedProps;
     const onclickVideo = () => {
         videoStore.fetchSelectedVideoDetails(video.id);
     }
@@ -34,5 +44,5 @@ const GamingVideoComponent = (props: any) => {
             </GamingVideosLink>
         </GamingVideoContainer>
     );
-}
+}))
 export default GamingVideoComponent;

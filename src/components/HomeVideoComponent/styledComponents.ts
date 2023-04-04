@@ -8,10 +8,9 @@ height: 300px;
 cursor: pointer;
 flex-direction: column;
 align-items: center;
-/* justify-content: center; */
-/* border: 1px solid #e6e6e6; */
 border-radius: 5px;
 margin: 10px;
+margin-left: 0px;
 `;
 
 

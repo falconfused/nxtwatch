@@ -1,9 +1,7 @@
 import styled from "styled-components";
 export const TrendingVideosListContainer = styled.div`
-    /* display: flex; */
     background-color: ${props => props.theme.bodyColor};
     flex-direction: column;
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: center;
     flex-wrap:wrap;
@@ -14,5 +12,5 @@ export const TrendingVideosListContainer = styled.div`
     @media (max-width: 1400px) {
     justify-content: center;
     }
-    overflow-y: scroll;
+    overflow-y: auto;
     `;

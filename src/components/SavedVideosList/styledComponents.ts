@@ -14,5 +14,5 @@ export const SavedVideosListContainer = styled.div`
     @media (max-width: 1400px) {
     justify-content: center;
     }
-    overflow-y: scroll;
+    overflow-y: auto;
     `;

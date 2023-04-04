@@ -1,22 +1,22 @@
 import { inject, observer } from "mobx-react";
-import { ThemeStore } from "../../stores/ThemeStore/ThemeStore";
-import { AuthStore } from "../../stores/AuthStore/AuthStore";
+import { useNavigate } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
-import ThemeButtonComponent from "../ThemeButtonComponent/ThemeButtonComponent";
-import { NxtWatchLogo } from "../LoginRoute/styledComponents";
-import { NXT_WATCH_LOGO_LIGHT, HEADER_PROFILE_IMAGE, NXT_WATCH_LOGO_DARK } from "../../constants/ImageUrl";
-import { HeaderContainer, HeaderOptions, HeaderOptionsMobile, ProfileImage } from "./styledComponents";
-import LogOut from "../LogOutButtton/LogOutButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { NXT_WATCH_LOGO_LIGHT, HEADER_PROFILE_IMAGE, NXT_WATCH_LOGO_DARK } from "../../constants/ImageUrl";
+import { ThemeStore } from "../../stores/ThemeStore/ThemeStore";
 import { Theme } from "../../constants/constants";
-import { useNavigate } from "react-router-dom";
+import { AuthStore } from "../../stores/AuthStore/AuthStore";
+import ThemeButtonComponent from "../ThemeButtonComponent/ThemeButtonComponent";
 import Modal from "../LogoutModal/index";
-import { navigationStore } from "../../stores";
+import { NxtWatchLogo } from "../LoginRoute/styledComponents";
+import LogOut from "../LogOutButtton/LogOutButton";
 import SideBarModal from "../SideBarModal";
+import { HeaderContainer, HeaderOptions, HeaderOptionsMobile, ProfileImage } from "./styledComponents";
+
 
 interface HeaderProps {
 }
@@ -50,7 +50,6 @@ const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) =
 
     const handleLogOut = () => {
         authStore.logout();
-        console.log(authStore.token)
         setToken(authStore.token);
     }
     const updateLogoutModal = () => {

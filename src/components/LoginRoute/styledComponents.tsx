@@ -54,7 +54,6 @@ export const Input = styled.input`
     display: flex;
     flex-direction: column;
     justify-content: start;
-    /* width: 100%; */
     height: 40px;
     border-radius: 4px;
     border: solid 1px #dfe1e6;
@@ -62,9 +61,8 @@ export const Input = styled.input`
     padding-left: 10px;
     margin-bottom: 20px;
     outline: none;
-    &:focus {
-        border: solid 1px #f7931e;
-    }
+
+    
 `;
 export const InputContainer = styled.div`
 

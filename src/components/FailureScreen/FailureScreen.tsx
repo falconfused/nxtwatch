@@ -1,8 +1,8 @@
+import { inject, observer } from "mobx-react";
 import { API_FAILURE, NO_SAVED_VIDEOS, Theme } from "../../constants/constants";
 import { FAILURE_VIEW_IMAGE_DARK, FAILURE_VIEW_IMAGE_LIGHT, NO_SAVED_VIDEOS_VIEW_IMAGE, NO_VIDEOS_VIEW_IMAGE_DARK, NO_VIDEOS_VIEW_IMAGE_LIGHT } from "../../constants/ImageUrl";
 import { ThemeStore } from "../../stores/ThemeStore";
 import { FailureScreenContainer, FailureScreenHeading, FailureScreenImage, FailureScreenMessage, FailureScreenRetryButton } from "./styledComponents";
-import { inject, observer } from "mobx-react";
 
 interface FailureScreenProps {
     failureType: string;
@@ -24,6 +24,7 @@ const FailureScreen =
                 const { themeStore } = props as InjectedProps;
                 if (failureType === API_FAILURE) imageURL = themeStore.theme === Theme.LIGHT ? FAILURE_VIEW_IMAGE_LIGHT : FAILURE_VIEW_IMAGE_DARK;
                 else if (failureType === "NO_RESULTS") imageURL = themeStore.theme === Theme.LIGHT ? NO_VIDEOS_VIEW_IMAGE_LIGHT : NO_VIDEOS_VIEW_IMAGE_DARK;
+                else if (failureType === "404") imageURL = themeStore.theme === Theme.LIGHT ? NO_VIDEOS_VIEW_IMAGE_LIGHT : NO_VIDEOS_VIEW_IMAGE_DARK;
                 else imageURL = NO_SAVED_VIDEOS_VIEW_IMAGE;
                 return (
                     <FailureScreenContainer>

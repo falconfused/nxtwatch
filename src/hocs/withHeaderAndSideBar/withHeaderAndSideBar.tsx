@@ -3,8 +3,8 @@ import { inject, observer } from 'mobx-react';
 import { ThemeStore } from '../../stores/ThemeStore';
 import Header from '../../components/Header';
 import SideBar from '../../components/SideBar';
-import { HomeContainer } from '../../components/Home/styledComponents';
-import { WithHeaderAndSidebarContainer } from './styledComponents';
+import { HomeContainer } from '../../routes/Home/styledComponents';
+import { WithHeaderAndSidebarContainer, WithHeaderAndSidebarContainerOuter } from './styledComponents';
 
 
 interface WithHeaderAndSidebarProps {
@@ -14,13 +14,13 @@ const withHeaderAndSidebar = (WrappedComponent: React.FC) => {
         observer((props: WithHeaderAndSidebarProps) => {
 
             return (
-                <HomeContainer>
+                <WithHeaderAndSidebarContainerOuter>
                     <Header />
                     <WithHeaderAndSidebarContainer>
                         <SideBar />
                         <WrappedComponent />
                     </WithHeaderAndSidebarContainer>
-                </HomeContainer>
+                </WithHeaderAndSidebarContainerOuter>
             );
         });
 

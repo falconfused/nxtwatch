@@ -1,28 +1,29 @@
-import { observer } from "mobx-react";
-import { useEffect } from "react";
-import {videoStore} from "../../stores";
+import { inject, observer } from "mobx-react";
+import { VideoStore } from "../../stores/VideoStore";
 import HomeVideoComponent from "../HomeVideoComponent";
 import { HomeVideosListContainer } from "./styledComponents";
 
 interface HomeVideosListProps {
+
+}
+interface injectedProps extends HomeVideosListProps {
+    videoStore: VideoStore;
 }
 
 
-const HomeVideosList = observer((props: HomeVideosListProps) => {
-    useEffect(() => {
-
-    }, [videoStore.homeVideosList]);
+const HomeVideosList = inject("videoStore")(observer((props: HomeVideosListProps) => {
+    const { videoStore } = props as injectedProps;
 
     return (
         <HomeVideosListContainer>
             {
                 videoStore.homeVideosList.map((video) =>
 
-                    <HomeVideoComponent key={video.id} video={video}></HomeVideoComponent>
+                    <HomeVideoComponent key={video.id} video={video} />
                 )
             }
         </HomeVideosListContainer>
     );
 }
-);
+));
 export default HomeVideosList;

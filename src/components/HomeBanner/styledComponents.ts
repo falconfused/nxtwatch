@@ -8,6 +8,7 @@ export const HomeBannerContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    max-height: 300px;
 
     width: 100%;
     color: black;
@@ -28,14 +29,23 @@ export const HomeBannerRightContainer = styled.div`
     display: flex;
     background-image: url( 
     ${HOME_BANNER_IMAGE});
-    background-size: cover;
+    background-size: cover ;
+    
     background-repeat: no-repeat;
-    background-position:center  ;
+    background-position:center;
+    /* background-position: top 0px left -100px; */
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+    align-items: end;
+    justify-content: start;
+    /* height: 500px; */
+    /* width: 50%; */
     height: 100%;
+    min-width: 50%;
+    @media (max-width: 1400px) {
+    min-width: 50%;
+    }
+    /* height: 400px; */
+    /* width: 400px; */
         @media (max-width: 576px) {
         display: none;
         }

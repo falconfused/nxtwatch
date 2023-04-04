@@ -19,3 +19,14 @@ display: flex;
         /* margin-top: 200px; */
     }
     `;
+
+export const WithHeaderAndSidebarContainerOuter = styled.div`
+
+height: 100vh;
+/* height: 100vh; */
+    /* display: flex; */
+
+    /* flex-direction: column; */
+    /* align-items: center; */
+
+`;

@@ -1,35 +1,26 @@
 import { inject, observer } from "mobx-react";
-import { videoStore } from "../../stores";
 import { VideoStore } from "../../stores/VideoStore";
-import { SelectedVideoBody, SelectedVideoContainer, SelectedVideoWithSideBar } from "./styledComponents";
-import { NavigationStore } from "../../stores/NavigationStore";
-import SelectedVideoPlayer from "../SelectedVideoPlayer/index";
-import Header from "../Header";
-import SideBar from "../SideBar";
-import SelectedVideoPlayerOptions from "../SelectedVideoPlayerOptions";
+import SelectedVideoPlayer from "../../components/SelectedVideoPlayer";
+import SelectedVideoPlayerOptions from "../../components/SelectedVideoPlayerOptions";
 import withHeaderAndSidebar from "../../hocs/withHeaderAndSideBar/withHeaderAndSideBar";
-import SelectedVideoDescription from "../SelectedVideoDescription";
+import SelectedVideoDescription from "../../components/SelectedVideoDescription";
+import { SelectedVideoBody } from "./styledComponents";
 interface SelectedVideoProps {
 }
 interface injectedProps extends SelectedVideoProps {
     videoStore: VideoStore;
-    navigationStore: NavigationStore;
 }
 
 const SelectedVideo = inject(
     "videoStore",
-    "navigationStore"
 )(
     observer((props: SelectedVideoProps) => {
         return (
             <>
                 <SelectedVideoBody>
                     <SelectedVideoPlayer />
-                    <SelectedVideoPlayerOptions/>
-                    
+                    <SelectedVideoPlayerOptions />
                     <SelectedVideoDescription />
-
-
                 </SelectedVideoBody>
             </>
 

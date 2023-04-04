@@ -1,6 +1,6 @@
+import { Fragment } from "react";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Fragment, useEffect, useState } from "react";
 import { Theme } from "../../constants/constants";
 import { LogOutButton } from "./styledComponents";
 interface LogOutProps {

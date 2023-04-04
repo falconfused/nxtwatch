@@ -22,7 +22,6 @@ class AuthStore {
         const response = await fetch(url, options);
         const data = await response.json();
 
-        console.log(data)
         if (response.ok) {
 
             this.loginStatus = Status.SUCCESS;
@@ -33,7 +32,6 @@ class AuthStore {
 
         }
         else {
-            console.log(data.error_msg)
             this.loginStatus = Status.ERROR;
             this.errorMessage = data.error_msg;
         }
@@ -43,6 +41,9 @@ class AuthStore {
         this.loginStatus = Status.INITIAL;
         Cookies.remove('jwt_token');
         this.token = undefined;
+    }
+    @action clearErrorMessage = () => {
+        this.errorMessage = '';
     }
 }
 

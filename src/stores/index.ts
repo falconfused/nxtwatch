@@ -1,11 +1,11 @@
 import { VideoStore } from "./VideoStore/index";
 import { ThemeStore } from "./ThemeStore";
-import { NavigationStore } from "./NavigationStore";
+import { BannerStore } from "./BannerStore";
 import { AuthStore } from "./AuthStore/AuthStore";
 
 
 const videoStore = new VideoStore();
 const themeStore = new ThemeStore();
-const navigationStore = new NavigationStore();
+const bannerStore = new BannerStore();
 const authStore = new AuthStore();
-export  { videoStore, themeStore, navigationStore, authStore };
+export { videoStore, themeStore, bannerStore, authStore };

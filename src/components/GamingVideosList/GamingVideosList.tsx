@@ -1,8 +1,7 @@
-import { observer } from "mobx-react";
 import { useEffect } from "react";
-import {videoStore} from "../../stores";
+import { observer } from "mobx-react";
+import { videoStore } from "../../stores";
 import GamingVideoComponent from "../GamingVideoComponent";
-
 import { GamingVideosListContainer } from "./styledComponents";
 
 interface GamingVideosListProps {
@@ -19,7 +18,7 @@ const GamingVideosList = observer((props: GamingVideosListProps) => {
             {
                 videoStore.gamingVideosList.map((video) =>
 
-                    <GamingVideoComponent key={video.id} video={video}></GamingVideoComponent>
+                    <GamingVideoComponent key={video.id} video={video} />
                 )
             }
         </GamingVideosListContainer>

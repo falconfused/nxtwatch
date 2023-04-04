@@ -7,14 +7,13 @@ export const FailureScreenContainer = styled.div`
     text-align: center;
     width: 100%;
     margin: auto;
-    height: 100%;
     background-color: ${props => props.theme.bodyColor};
     color: ${props => props.theme.textColor};
     `;
 
 export const FailureScreenImage = styled.img`
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     @media (max-width: 576px) {
         width: 200px;
         height: 200px;

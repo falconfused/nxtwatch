@@ -1,4 +1,4 @@
-import { Button, ButtonContainer, ModalContainer, ModalContent, ModalMessage, ModalTitle } from "./styledComponents";
+import { ButtonContainer, ModalContainer, ModalContent, ModalMessage, ModalTitle, SubmitButton } from "./styledComponents";
 
 
 interface LogoutModalProps {
@@ -15,14 +15,16 @@ const LogoutModal = ({ show, onClose, handleLogOut }: LogoutModalProps) => {
     return (
         <ModalContainer show={show}>
             <ModalContent>
-                <ModalTitle>Logout</ModalTitle>
+                {/* <ModalTitle>Logout</ModalTitle> */}
                 <ModalMessage>Are you sure you want to logout?</ModalMessage>
                 <ButtonContainer>
-                    <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={handleLogout}>Logout</Button>
+                    <SubmitButton
+                         types="Close"
+                        onClick={onClose}>Cancel</SubmitButton>
+                    <SubmitButton onClick={handleLogout}>Confirm</SubmitButton>
                 </ButtonContainer>
             </ModalContent>
-        </ModalContainer>
+        </ModalContainer >
     );
 
 

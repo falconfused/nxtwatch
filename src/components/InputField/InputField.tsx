@@ -6,8 +6,7 @@ interface InputFieldProps {
     value: string;
     theme: string;
     onChange: (value: string) => void;
-    isPassword?: boolean;
-    showPassword?: boolean;
+
 
 }
 

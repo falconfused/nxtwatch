@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { FACEBOOK_ICON, LINKEDIN_ICON, TWITTER_ICON } from "../../constants/ImageUrl";
 import { SideBarContactUsContainer, SideBarContactUsIcon, SideBarContactUsIconContainer, SideBarContactUsText, SideBarContactUsTitle } from "./styledComponents";
 
