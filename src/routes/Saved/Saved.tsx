@@ -23,8 +23,7 @@ const Saved = inject("videoStore")(observer((props: HomeProps) => {
 
     const toRenderSavedVideos = () => {
         switch (videoStore.savedVideosList.length) {
-            default:
-                return <SavedVideosList />
+
             case 0:
                 return <FailureScreen
                     failureType={NO_SAVED_VIDEOS}
@@ -32,6 +31,8 @@ const Saved = inject("videoStore")(observer((props: HomeProps) => {
                     failureMessage="You have not saved any videos yet"
 
                 />
+            default:
+                return <SavedVideosList />
         }
     }
     return (

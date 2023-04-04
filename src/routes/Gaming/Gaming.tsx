@@ -34,6 +34,8 @@ const Gaming = inject("videoStore")(observer((props: HomeProps) => {
                 />
             case Status.LOADING:
                 return <Loader />
+            default:
+                return null;
         }
     }
 
@@ -42,9 +44,8 @@ const Gaming = inject("videoStore")(observer((props: HomeProps) => {
         <>
             <GamingVideoWithBanner>
                 <VideoListBanner title={GAMING} />
-                {
-                    videoStore.gamingVideosStatus === Status.SUCCESS &&
-                    <GamingVideosList ></GamingVideosList>}
+
+
 
                 {toRenderGamingVideos()}
 

@@ -1,4 +1,5 @@
 import FailureScreen from "../../components/FailureScreen"
+import { NOT_FOUND } from "../../constants/constants";
 import withHeaderAndSidebar from "../../hocs/withHeaderAndSideBar/withHeaderAndSideBar";
 import { NotFoundContainer } from "./styledComponents";
 
@@ -8,7 +9,7 @@ const NotFound = () => {
             <FailureScreen
                 failureMessage="We are sorry, the page you requested could not be found."
                 failureTitle="Page Not Found"
-                failureType="404"
+                failureType={NOT_FOUND}
 
             />
         </NotFoundContainer>

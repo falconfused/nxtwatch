@@ -31,3 +31,5 @@ export const DISLIKE = 'dislike';
 export const API_FAILURE = 'API_FAILURE';
 export const NO_RESULTS = 'NO_RESULTS';
 export const NO_SAVED_VIDEOS = 'NO_SAVED_VIDEOS';
+
+export const NOT_FOUND = 'NOT_FOUND';
