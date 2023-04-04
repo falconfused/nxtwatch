@@ -16,6 +16,7 @@ import { NxtWatchLogo } from "../LoginRoute/styledComponents";
 import LogOut from "../LogOutButtton/LogOutButton";
 import SideBarModal from "../SideBarModal";
 import { HeaderContainer, HeaderOptions, HeaderOptionsMobile, ProfileImage } from "./styledComponents";
+import { bannerStore, videoStore } from "../../stores";
 
 
 interface HeaderProps {
@@ -26,7 +27,7 @@ interface injectedProps extends HeaderProps {
 }
 
 
-const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) => {
+const Header = inject("authStore", "themeStore",'videoStore','bannerStore')(observer((props: HeaderProps) => {
 
     const { themeStore } = props as injectedProps;
     const { authStore } = props as injectedProps;
@@ -51,6 +52,9 @@ const Header = inject("authStore", "themeStore")(observer((props: HeaderProps) =
     const handleLogOut = () => {
         authStore.logout();
         setToken(authStore.token);
+        authStore.clearAuthStore();
+        videoStore.clearVideoStore();
+        bannerStore.clearBannerStore();
     }
     const updateLogoutModal = () => {
         setLogoutModal(!logoutModal);

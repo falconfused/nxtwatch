@@ -233,6 +233,18 @@ class VideoStore {
 
         return finalTimeDifference;
     }
+    @action
+    clearVideoStore = () => {
+        this.homeVideosList = [] as VideosModel[];
+        this.trendingVideosList = [] as VideosModel[];
+        this.gamingVideosList = [] as VideosModel[];
+        this.selectedVideoDetails = {} as VideosModel;
+        this.selectedVideoId = "";
+        this.searchInput = "";
+        this.savedVideosList = [] as VideosModel[];
+        this.likedVideosSet = new Set();
+        this.dislikedVideosSet = new Set();
+    }
 
 }
 export { VideoStore };

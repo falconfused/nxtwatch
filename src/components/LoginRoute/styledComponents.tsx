@@ -50,37 +50,6 @@ export const NxtWatchLogo = styled.img`
     }
 `;
 
-export const Input = styled.input`
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    height: 40px;
-    border-radius: 4px;
-    border: solid 1px #dfe1e6;
-    background-color: #ffffff;
-    padding-left: 10px;
-    margin-bottom: 20px;
-    outline: none;
-
-    
-`;
-export const InputContainer = styled.div`
-
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-   width: 80%;
-    outline: none;
-    `;
-
-
-export const InputLabel = styled.label`
-display: flex;
-text-align: start;
-flex-direction: row;
-justify-content: start;
-margin-bottom: 10px;
-    `;
 export const ShowPasswordCheckBox = styled.input`
     display: flex;
     flex-direction: row;

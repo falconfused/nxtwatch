@@ -33,3 +33,4 @@ export const NO_RESULTS = 'NO_RESULTS';
 export const NO_SAVED_VIDEOS = 'NO_SAVED_VIDEOS';
 
 export const NOT_FOUND = 'NOT_FOUND';
+export const SEARCHBAR_INPUT = 'SEARCHBAR_INPUT';

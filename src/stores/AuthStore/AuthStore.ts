@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { action, observable } from 'mobx';
+import { action, observable, reaction } from 'mobx';
 
 import { Status } from '../../constants/constants';
 
@@ -11,7 +11,6 @@ class AuthStore {
     @observable errorMessage = '';
     @observable loginStatus = Status.INITIAL;
     @observable token: string | undefined = '';
-
     @action login = async (username: string, password: string) => {
         this.loginStatus = Status.LOADING;
         const url = "https://apis.ccbp.in/login";
@@ -37,6 +36,7 @@ class AuthStore {
         }
     }
 
+
     @action logout = () => {
         this.loginStatus = Status.INITIAL;
         Cookies.remove('jwt_token');
@@ -45,6 +45,22 @@ class AuthStore {
     @action clearErrorMessage = () => {
         this.errorMessage = '';
     }
+
+
+    @action
+    clearAuthStore = () => {
+
+
+        this.loginStatus = Status.INITIAL;
+        this.errorMessage = '';
+        this.token = undefined;
+
+
+    }
+
+
+
+
 }
 
 export { AuthStore };

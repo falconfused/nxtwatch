@@ -6,6 +6,12 @@ class BannerStore {
     setBannerState = (state: boolean) => {
         this.bannerState = state;
     };
+
+    @action
+    clearBannerStore = () => {
+        this.bannerState = true;
+    }
+
 }
 
 export { BannerStore };
